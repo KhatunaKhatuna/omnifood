@@ -25,8 +25,8 @@ body {
   height: 100%;
   width: 100%;
   font-size: 100%;
+  font-size: 14px;
   line-height: 1;
-  font-size: 62.5%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -69,6 +69,9 @@ h6 {
   font-weight: 400;
 }
 /* ------end resset ------*/
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: "inter", sans-serif;
   line-height: 1;
@@ -107,7 +110,7 @@ body {
   margin-bottom: 1.6rem;
   letter-spacing: 0.75px;
 }
-
+.btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -140,6 +143,17 @@ body {
 
   box-shadow: inset 0 0 0 3px #fff;
 }
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
 .margin-right-sm {
   margin-right: 2rem !important;
 }
@@ -160,6 +174,7 @@ body {
   row-gap: 9.6rem;
   column-gap: 6.4rem;
 }
+
 /* when we have two or more grid in same section */
 .grid:not(:last-child) {
   margin-bottom: 9.6rem;
@@ -181,6 +196,9 @@ body {
 
 strong {
   font-weight: 600;
+}
+* :focus {
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
 }
 /* Header */
 .header {
@@ -603,4 +621,92 @@ strong {
 .feature-text {
   font-size: 1.8rem;
   line-height: 1.8;
+}
+/* Cta Section */
+.section-cta {
+  padding: 4.8rem 0 12.8rem;
+}
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  border-radius: 11px;
+
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+  overflow: hidden;
+}
+
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #45260a;
+}
+.cta .heading-secondary {
+  color: inherit;
+  margin-bottom: 3.2rem;
+}
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+.cta-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input::placeholder {
+  color: #aaa;
+}
+.cta-form select {
+  appearance: none;
+}
+.select-container {
+  position: relative;
+}
+
+.custom-arrow {
+  font-size: 18px;
+  pointer-events: none;
+  display: block;
+  height: 100%;
+  width: 8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* right: 20px;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transform: rotate(135deg); */
+}
+.btn--form {
+  align-self: end;
+}
+.cta-img-box {
+  background-image: url("./img/eating.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.cta *:focus {
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
 }
