@@ -77,6 +77,7 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555;
+  overflow-x: hidden;
 }
 /* General components */
 .heading-primary,
@@ -209,6 +210,7 @@ strong {
   /* when you want that header was sticky its better to give height*/
   height: 9.6rem;
   padding: 0 41px;
+  position: relative;
 }
 .logo {
   height: 2.4rem;
@@ -223,7 +225,7 @@ strong {
 .main-nav-link:visited {
   display: inline-block;
   color: #333;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.8rem;
   transition: all 0.3s;
 }
@@ -243,6 +245,24 @@ strong {
 .main-nav-link.nav-cta:active {
   background-color: #cf711f;
 }
+
+/* Mobile nav */
+.btn-mobile-nav {
+  background: none;
+  display: none;
+}
+
+.icon-mobile-nav {
+  width: 4.8rem;
+  height: 4.8rem;
+  color: #333;
+}
+
+/*  select by name or add other class*/
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
 /* Hero section */
 .section-hero {
   background-color: #fdf2e9;
@@ -268,9 +288,9 @@ strong {
   line-height: 1.5;
   margin-bottom: 4.8rem;
 }
-.hero-img {
+/* .hero-img {
   background-size: cover;
-}
+} */
 
 .hero-img {
   max-width: 100%;
@@ -689,10 +709,10 @@ strong {
   pointer-events: none;
   display: block;
   height: 100%;
-  width: 8rem;
+  width: 4rem;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 5%;
   /* right: 20px;*/
   display: flex;
   align-items: center;
@@ -703,10 +723,69 @@ strong {
   align-self: end;
 }
 .cta-img-box {
-  background-image: url("./img/eating.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(28, 80%, 61%, 0.534),
+      hsla(28, 80%, 52%, 0.335)
+    ),
+    url("./img/eating.jpg");
   background-size: cover;
   background-position: center;
 }
 .cta *:focus {
   box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
+}
+
+@media (max-width: 59em) {
+  /* mobile navigation */
+  .btn-mobile-nav {
+    display: block;
+  }
+  .main-nav {
+    background-color: #ffffffef;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Allows NO transition at all (if need animation dont use display: none) */
+    /* display:none */
+
+    /* 1) Hide it visually */
+    opacity: 0;
+    /* 2) Make it uneccessible to mouse and keyboard */
+    pointer-events: none;
+    /* 3) Hide it from screen readers */
+    visibility: hidden;
+
+    transition: all 0.5s ease-in;
+    transform: translateX(100%);
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  /*  select by name or add other class*/
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+  .nav-open .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
 }
